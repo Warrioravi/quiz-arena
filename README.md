@@ -133,7 +133,7 @@ The system minimizes the **Blast Radius** of failures so single network drops do
 
 1. Clone the repository:
    ```bash
-   git clone [https://github.com/yourusername/quiz-arena.git](https://github.com/yourusername/quiz-arena.git)
+   git clone [(https://github.com/Warrioravi/quiz-arena.git))
    cd quiz-arena
    ```
 
