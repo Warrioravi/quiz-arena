@@ -1,0 +1,39 @@
+# ==========================================
+# FULL-STACK QUIZ ARENA .GITIGNORE
+# ==========================================
+
+# dependencies (Applies to both client and server)
+node_modules/
+.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# env files (Secures both backend and frontend secrets)
+.env*
+
+# next.js (Frontend)
+.next/
+out/
+build/
+.vercel/
+
+# testing
+coverage/
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
