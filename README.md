@@ -88,19 +88,10 @@ graph TD
 
 ## 🔄 Data Flow & State Lifecycle
 
-The application divides data into distinct lifecycle phases to optimize for performance, budget, and memory safety:
-
-### Phase 1: High-Speed Mutability (Active Game)
 1. The client selects an option and clicks **"Check Answer"**. The UI instantly renders locally and emits a payload to the server.
 2. The server triggers an **atomic Redis operation** (`ZINCRBY`).
 3. Redis processes this addition natively in $O(\log(N))$ time complexity. Even if thousands of players submit answers at the exact same millisecond, Redis serializes the actions, preventing data loss.
 4. The server executes `ZRANGE` and pushes a unified `leaderboard_update` strictly to the Top 10 users to preserve client bandwidth.
-
-### Phase 2: Immutability & Archiving (Game Over)
-Holding inactive quizzes in Redis RAM causes memory leaks. When an arena ends:
-1. The server extracts the final rankings from the Upstash Sorted Set.
-2. The server saves the structured JSON document permanently into a **MongoDB collection**.
-3. The server fires a `DEL` command to purge the Redis key, freeing up memory, and cleanly disbands the Socket room.
 
 ---
 
