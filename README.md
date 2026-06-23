@@ -6,13 +6,12 @@ A distributed, low-latency multiplayer educational platform. This application al
 * **Real-Time Multiplayer:** Sub-100ms UI responsiveness using WebSockets.
 * **Live Leaderboards:** Instant ranking calculations using Redis Sorted Sets.
 * **Fault Tolerant:** Built-in mobile connection recovery and atomic database transactions.
-* **Persistent Archiving:** Automatic end-of-game data offloading to MongoDB.
+* **Persistent Archiving:** Automatic end-of-game data offloading to MongoDB.(Future improvement)
 
 ## 🛠 Tech Stack
 * **Frontend:** Next.js, React, Tailwind CSS (Glassmorphism UI)
 * **Backend:** Node.js, Express, Socket.io
 * **Real-Time Data:** Upstash Redis (Serverless Cloud Cache)
-* **Persistent Data:** MongoDB (Document Store)
 * **Testing:** Jest, React Testing Library, Supertest
 
 ---
@@ -83,7 +82,7 @@ graph TD
 * **Client Application:** Component-driven UI managing local state (instant correctness animations) and persistent WebSocket connections.
 * **Application Server:** A fleet of stateless, event-driven servers handling WebSocket pools and compartmentalizing quiz sessions into isolated virtual channels.
 * **In-Memory State Layer:** An ultra-low-latency Upstash Redis cache acting as the single source of truth for active games, handling concurrent additions via atomic operations.
-* **Persistent Document Store:** MongoDB permanently archives structured JSON quiz data when a session officially ends, allowing expensive Redis cache clusters to be wiped clean.
+
 
 ---
 
@@ -151,7 +150,6 @@ The system minimizes the **Blast Radius** of failures so single network drops do
    ```env
    PORT=3001
    UPSTASH_REDIS_URL=rediss://default:YOUR_PASSWORD@your-endpoint.upstash.io:32000
-   MONGODB_URI=mongodb://localhost:27017/quiz_arena
    ```
 
 ### Running Locally
