@@ -78,6 +78,15 @@ graph TD
     S2 -.->|Async Archiving| DB
 ```
 
+## 🎨 UI/UX & Frontend Architecture
+
+The frontend is engineered to match the backend's speed, prioritizing perceived performance and immediate user feedback.
+
+* **Optimistic UI Updates:** When a user submits an answer, the client immediately renders local state changes (e.g., highlighting the selected option, showing success/error colors) while the WebSocket payload is in flight.
+* **Smooth Leaderboard Transitions:** Uses layout animations to smoothly slide user ranks up or down during real-time updates, avoiding jarring UI jumps when the Redis leaderboard broadcasts new positions.
+* **Responsive Glassmorphism:** Built with Tailwind CSS, the interface uses semi-transparent blurs and visual depth to keep the user focused on the active quiz question, scaling perfectly from mobile screens to desktop monitors.
+* **Connection State Awareness:** The UI gracefully handles unstable mobile networks, displaying non-intrusive "Reconnecting..." toast indicators and disabling inputs until `connectionStateRecovery` successfully re-establishes the link.
+
 ### Component Breakdown
 * **Client Application:** Component-driven UI managing local state (instant correctness animations) and persistent WebSocket connections.
 * **Application Server:** A fleet of stateless, event-driven servers handling WebSocket pools and compartmentalizing quiz sessions into isolated virtual channels.
@@ -92,6 +101,7 @@ graph TD
 2. The server triggers an **atomic Redis operation** (`ZINCRBY`).
 3. Redis processes this addition natively in $O(\log(N))$ time complexity. Even if thousands of players submit answers at the exact same millisecond, Redis serializes the actions, preventing data loss.
 4. The server executes `ZRANGE` and pushes a unified `leaderboard_update` strictly to the Top 10 users to preserve client bandwidth.
+5.The client intercepts the updated leaderboard array and animates the new rankings into place on the UI without requiring full-page re-renders.
 
 ---
 
