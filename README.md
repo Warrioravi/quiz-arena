@@ -171,7 +171,7 @@ Navigate to `http://localhost:3000` to start playing!
 ---
 
 ## 🧪 Testing
-Both application layers are heavily tested using decoupled testing paradigms.
+Both application layers are tested using decoupled testing paradigms.
 
 * **Frontend:** Uses Jest + React Testing Library. The `socket.io-client` is fully mocked to programmatically test user event flows without requiring a live server.
 * **Backend:** Uses Jest + Supertest. Executes tests on dynamically allocated ports to prevent CI/CD collisions, fully mocking Redis and MongoDB to ensure deterministic execution.
@@ -183,4 +183,7 @@ npm test
 
 # In the quiz-server directory
 npm test
+# For running concurrency tests
+
+npm run test:concurrency
 ```
