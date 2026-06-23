@@ -1,4 +1,4 @@
-// components/QuizCard.tsx
+// components/QuizCard.tsx <-AI assisted code->
 import React from "react";
 import { Question } from "../types";
 

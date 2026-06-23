@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "test": "jest",
+    "test:concurrency": "node test-concurrency.js"
   },
   "keywords": [],
   "author": "",
@@ -14,7 +16,11 @@
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "redis": "^6.0.0",
-    "socket.io": "^4.8.3",
-    "socket.io-client": "^4.8.3"
+    "socket.io": "^4.8.3"
+  },
+  "devDependencies": {
+    "jest": "^30.4.2",
+    "socket.io-client": "^4.8.3",
+    "supertest": "^7.2.2"
   }
 }

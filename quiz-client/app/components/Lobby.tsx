@@ -1,4 +1,4 @@
-// components/Lobby.tsx
+// components/Lobby.tsx <-AI assisted code->
 import React from "react";
 
 interface LobbyProps {

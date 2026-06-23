@@ -1,4 +1,4 @@
-// components/Leaderboard.tsx
+// components/Leaderboard.tsx. <-AI assisted code->
 import React from "react";
 import { LeaderboardEntry } from "../types";
 

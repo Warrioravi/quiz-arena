@@ -149,7 +149,7 @@ The system minimizes the **Blast Radius** of failures so single network drops do
 
 3. Set up environment variables in the `quiz-server/` directory (`.env`):
    ```env
-   PORT=3000
+   PORT=3001
    UPSTASH_REDIS_URL=rediss://default:YOUR_PASSWORD@your-endpoint.upstash.io:32000
    MONGODB_URI=mongodb://localhost:27017/quiz_arena
    ```
