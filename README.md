@@ -8,6 +8,7 @@ A distributed, low-latency multiplayer webapp. This application allows users to 
 * **Fault Tolerant:** Built-in mobile connection recovery and atomic database transactions.
 * **Persistent Archiving:** Automatic end-of-game data offloading to MongoDB.(Future improvement)
 
+
 ## 🛠 Tech Stack
 * **Frontend:** Next.js, React, Tailwind CSS (Glassmorphism UI)
 * **Backend:** Node.js, Express, Socket.io
@@ -39,7 +40,7 @@ quiz-arena/
 
 ## 🏗 System Architecture
 
-The system architecture prioritizes horizontal scalability and strict reliability patterns to protect against high-velocity data race conditions and concurrent write conflicts.
+The system architecture prioritizes horizontal scalability and strict reliability patterns to protect against high-velocity data race conditions and concurrent write conflicts. The persistent data layer with MongoDB and the Infrastructure layer is not implemented in current prototype as it is out of scope for this challenge.
 
 ```mermaid
 graph TD
