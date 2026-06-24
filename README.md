@@ -1,6 +1,6 @@
 # 🏆 Real-Time Quiz Arena
 
-A distributed, low-latency multiplayer educational platform. This application allows users to create and enter isolated quiz rooms (Arenas) to compete in real-time, featuring a live leaderboard and instant answer validation.
+A distributed, low-latency multiplayer webapp. This application allows users to create and enter isolated quiz rooms (Arenas) to compete in real-time, featuring a live leaderboard and instant answer validation.
 
 ## 🚀 Features
 * **Real-Time Multiplayer:** Sub-100ms UI responsiveness using WebSockets.
